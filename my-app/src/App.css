@@ -30,10 +30,18 @@
 
 .TODOs {
     margin-top: 10px;
+    border: 1px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .TODOButton {
     margin-left: 10px;
+    background-color: #ff3838;
+}
+
+#addBut {
+    background-color: #00ff00;
 }
 
 @keyframes App-logo-spin {

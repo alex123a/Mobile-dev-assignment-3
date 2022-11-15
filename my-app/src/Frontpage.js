@@ -23,13 +23,13 @@ function App() {
     return (
         <div>
             <input id="TODOText" ref={inputRef} type="text"></input>
-            <input type="button" onClick={ onClick } value="Add" />
+            <input id="addBut" type="button" onClick={ onClick } value="Add" />
 
             <div>
                 {inputValues.map( e =>
                     <div className="TODOs" name={e}>
                         <span>{e}</span>
-                        <input className="TODOButton" type="button" value="delete" name={e} onClick={() => handleRemoveItem(e)}></input>
+                        <input className="TODOButton" type="button" value="Delete" name={e} onClick={() => handleRemoveItem(e)}></input>
                     </div>
                 )}
             </div>
