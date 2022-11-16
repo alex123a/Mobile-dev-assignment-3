@@ -29,17 +29,23 @@ function App() {
     return (
         <div id="frontPageDiv">
             <p className="normalText">Add TODOs below:</p>
-            <input id="TODOText" ref={inputRef} type="text"></input>
-            <input id="addBut" type="button" onClick={ onClick } value="Add" />
-            
+            <div className="input-group mb-3">
+                <input id="TODOText" className="form-control" ref={inputRef} type="text"></input>
+                <div className="input-group-prepend">
+                    <input id="addBut" className="btn btn-success" type="button" onClick={ onClick } value="Add" />  
+                </div>
+            </div>
+
             <div id="TODOsDiv">
                 <p className="normalText">TODO list:</p>
                 {inputValues.map((e) => {
                     e = JSON.parse(e);
                     return (
-                        <div key={e.id} className="TODOs" name={e}>
-                            <span className='TODOText'>{e.content}</span>
-                            <input className="TODOButton" type="button" value="Delete" name={e} onClick={() => handleRemoveItem(e)}></input>
+                        <div key={e.id} className="justify-content-center" name={e}>
+                            <div className="d-flex border justify-content-center">
+                                <span className='TODOText break-text'>{e.content}</span>
+                            </div>
+                            <input className="btn btn-danger deleteBut" type="button" value="Delete" name={e} onClick={() => handleRemoveItem(e)}></input>
                         </div>
                     )
                 })}

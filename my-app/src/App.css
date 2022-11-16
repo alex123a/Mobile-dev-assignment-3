@@ -29,24 +29,30 @@
 }
 
 .TODOs {
+    width: 200px;
     margin-top: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin-left: 10px;
     margin-right: 10px;
-}
-
-.TODOButton {
-    margin-left: 10px;
-    background-color: #ff3838;
-}
-
-#addBut {
-    background-color: #00ff00;
 }
 
 .normalText {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.TODOText {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.deleteBut {
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+#addBut {
+    margin-left: 10px;
 }
 
 @keyframes App-logo-spin {
