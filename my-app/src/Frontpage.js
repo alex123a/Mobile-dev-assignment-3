@@ -7,15 +7,9 @@ function App() {
     const [inputValues, setValues] = useState([]);
 
     const onClick = () => {
-        /* 
-            The reason why I save the inputRef value in a new variable is because there is a delay between clicking the add button and it creating
-            a new TODO. So it removes the text before actually adding the input so the value will be 0 when it is added. To fix this I just
-            save the value in a new variable called value.
-        */
-        const temp = inputRef.current.value;
         const value = {
             id: uuid(),
-            content: temp
+            content: inputRef.current.value
         }
         setValues( arr => [...arr, JSON.stringify(value)]);
         inputRef.current.value = "";
@@ -37,7 +31,7 @@ function App() {
             </div>
 
             <div id="TODOsDiv">
-                <p className="normalText">TODO list:</p>
+                <p className="normalText">Current tasks {inputValues.length} - TODO list:</p>
                 {inputValues.map((e) => {
                     e = JSON.parse(e);
                     return (
