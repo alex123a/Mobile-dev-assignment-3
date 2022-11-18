@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 function App() {
     const inputRef = useRef(null);
     const [inputValues, setValues] = useState([]);
+    const [completedTodos, setCompletedTodos] = useState([]);
 
     const onClick = () => {
         const value = {
@@ -19,6 +20,12 @@ function App() {
         e = JSON.stringify(e);
         setValues(inputValues.filter(item => item !== e));
     };
+
+    const handleCompletedItem = e => {
+        e = JSON.stringify(e);
+        setCompletedTodos( arr => [...arr, e]);
+        setValues(inputValues.filter(item => item !== e));
+    }
     
     return (
         <div id="frontPageDiv">
@@ -31,7 +38,7 @@ function App() {
             </div>
 
             <div id="TODOsDiv">
-                <p className="normalText">Current tasks {inputValues.length} - TODO list:</p>
+                <p className="normalText">TODOs can be seen below - Current tasks left {inputValues.length}</p>
                 {inputValues.map((e) => {
                     e = JSON.parse(e);
                     return (
@@ -39,7 +46,20 @@ function App() {
                             <div className="d-flex border justify-content-center">
                                 <span className='TODOText break-text'>{e.content}</span>
                             </div>
-                            <input className="btn btn-danger deleteBut" type="button" value="Delete" name={e} onClick={() => handleRemoveItem(e)}></input>
+                            <input className="btn btn-success TodoBut" type="button" value="Complete" name={e} onClick={() => handleCompletedItem(e)}></input>
+                            <input className="btn btn-danger TodoBut" type="button" value="Delete" name={e} onClick={() => handleRemoveItem(e)}></input>
+                        </div>
+                    )
+                })}
+            </div>
+
+            <div id="TODOsCompletedDiv">
+                <p className='normalText'>Completed tasks below - {completedTodos.length} tasks completed</p>
+                {completedTodos.map((e) => {
+                    e = JSON.parse(e);
+                    return (
+                        <div key={e.id} className="d-flex border justify-content-center" name={e}>
+                            <span className='TODOText break-text'>{e.content}</span>
                         </div>
                     )
                 })}
