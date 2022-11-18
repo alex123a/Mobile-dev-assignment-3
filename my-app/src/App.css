@@ -40,6 +40,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 15px;
+    font-weight: bold;
 }
 
 .TODOText {
@@ -66,19 +67,5 @@
     }
     to {
         transform: rotate(360deg);
-    }
-}
-
-
-/* Change the css below */
-@media screen and (max-width: 992px) {
-    .App-header {
-        background-color: blue;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .App-header {
-        background-color: red;
     }
 }
