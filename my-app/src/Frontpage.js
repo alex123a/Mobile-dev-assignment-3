@@ -43,7 +43,7 @@ function App() {
                     e = JSON.parse(e);
                     return (
                         <div key={e.id} className="justify-content-center" name={e}>
-                            <div className="d-flex border justify-content-center">
+                            <div className="d-flex justify-content-center border border-3 border-dark">
                                 <span className='TODOText break-text'>{e.content}</span>
                             </div>
                             <input className="btn btn-success TodoBut" type="button" value="Complete" name={e} onClick={() => handleCompletedItem(e)}></input>
@@ -58,7 +58,7 @@ function App() {
                 {completedTodos.map((e) => {
                     e = JSON.parse(e);
                     return (
-                        <div key={e.id} className="d-flex border justify-content-center" name={e}>
+                        <div key={e.id} className="d-flex justify-content-center border border-3 border-dark marginAdjuster" name={e}>
                             <span className='TODOText break-text'>{e.content}</span>
                         </div>
                     )
